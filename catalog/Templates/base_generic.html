@@ -1,8 +1,11 @@
-{% extends 'base_generic.html' %}
-
-{% block title %}App Catalog{% endblock %}
-
-{% block content %}
-    <h1>¡¡Hola Pythonista, la App Catalog está funcionando correctamente!!</h1>
-  
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}App Catalog{% endblock %}</title>
+</head>
+<body>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

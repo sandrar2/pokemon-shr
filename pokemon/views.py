@@ -1,15 +1,14 @@
 from django.shortcuts import render
 
-# Create your views here.
-
 def pokemon_list(request):
-
     data_context = {
         'Nombre': 'Katty Paredes',
         'Numero': 20,
         'Generacion': '12345678',
-        'Tipo': 'Peru',
-
+        'Tipo': '',
     }
 
-    return render(request,'owner_list.html', context={'data': data_context})
+    # Corrige el nombre de la plantilla a 'pokemon_list.html'
+    return render(request, 'pokemon_list.html', context={'data': data_context})
+
+

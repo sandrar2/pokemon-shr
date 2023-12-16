@@ -21,8 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('owner/', include('owner.urls')),
-    path('pokemon/', include('pokemon_app.urls'))
+    path('pokemon/', include('pokemon_app.urls')),
+    path('catalog/', include('catalog.urls'))
 
 ]
-
-

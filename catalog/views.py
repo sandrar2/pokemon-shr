@@ -10,3 +10,4 @@ def catalog_list(request):
     }
 
     return render(request, 'catalog_list.html', context={'data': data_context})
+

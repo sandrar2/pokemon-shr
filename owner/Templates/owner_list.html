@@ -1,8 +1,17 @@
 {% extends 'base_generic.html' %}
 
-{% block title %}App Catalog{% endblock %}
+{% block title %}App Owner{% endblock %}
 
 {% block content %}
     <h1>¡¡Hola Pythonista, la App Owner está funcionando correctamente!!</h1>
+    <p>Nombre: {{ data.nombre }}</p>
+    <p>Edad: {{ data.edad }}</p>
+    <p>DNI: {{ data.dni }}</p>
+    <p>País: {{ data.pais }}</p>
+    <p>Vigente: {% if data.vigente %} Sí {% else %} No {% endif %}</p>
 {% endblock %}
+
+
+
+
 

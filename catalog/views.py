@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 def catalog_list(request):
     data_context = {
-        'nombre_catalog': 'Luis',
+        'nombre': 'Luis',
         'edad': 25,
         'pais': 'Peru'
     }
@@ -16,6 +16,7 @@ def catalog_list(request):
         data_context['mensaje'] = 'Luis es menor de edad'
 
     return render(request, 'catalog_list.html', context={'data': data_context})
+
 
 
 

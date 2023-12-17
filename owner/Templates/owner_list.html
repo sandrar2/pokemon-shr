@@ -3,21 +3,64 @@
 {% block title %}App Owner{% endblock %}
 
 {% block content %}
-    <h1>Lista de owners peruanos</h1>
-    <div class="container text-center">
-  <div class="row align-items-center">
-    <div class="col">
-      Nombre
-    </div>
-    <div class="col">
-      Edad
-    </div>
-    <div class="col">
-      Pais
-    </div>
-  </div>
-</div>
+
+    <ul>
+        {% for owner in data %}
+            <li>
+                <p><strong>Nombre de owner: </strong>{{ owner.nombre }}</p>
+                <p><strong>Edad:</strong> {{ owner.edad }}</p>
+                <p><strong>Pais:</strong> {{ owner.pais }}</p>
+                <p><strong>DNI:</strong> {{ owner.dni }}</p>
+                <p><strong>Vigente:</strong> {{ owner.vigente }}</p>
+
+                {% if owner.edad > 18 %}
+                    <p>Usted ya es mayor de edad</p>
+                {% else %}
+                    <p>Usted todavía no es mayor de edad</p>
+                {% endif %}
+
+                {% if owner.dni %}
+                    {% if not owner.vigente %}
+                        <p>Su usuario está por vencer</p>
+                    {% endif %}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+
+    {% for owner in data %}
+        {% if owner.edad and owner.dni %}
+            {#<p><strong>Nombre de owner: </strong>{{ owner.nombre }}</p>#}
+            <p><strong>Nombre de owner: </strong>{{ owner.nombre | lower }}</p>
+            <p><strong>Uso del pipe slugify (filtros): </strong>{{ owner.nombre | slugify }}</p>
+            <p><strong>Uso del pipe upper (filtros): </strong>{{ owner.nombre | upper }}</p>
+            <p><strong>Uso del pipe cut (filtros): </strong>{{ owner.nombre | cut:" " }}</p>
+            <p><strong>Edad de owner: </strong>{{ owner.edad }}</p>
+        {% endif %}
+
+        {% if owner.pokemons %}
+            {% if owner.pokemons %}
+                <p>Y tiene los siguientes pokemons</p> <br>
+                {% for pokemon in owner.pokemons %}
+                    {{ pokemon.nombre_pokemon }}, cantidad.caracteres: {{ pokemon.nombre_pokemon | length  }}
+                    tiene los siguientes ataques:
+                    {% for ataque in pokemon.ataques %}
+                        {{ ataque }}
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+
+        {% endif %}
+
+    {% endfor %}
+
+
 {% endblock %}
+
+
+
+
 
 
 
